@@ -7,7 +7,7 @@ RUN apt update \
 ADD https://packages.chef.io/files/stable/inspec/4.52.9/ubuntu/20.04/inspec_4.52.9-1_arm64.deb /code/
 RUN dpkg -i /code/inspec_4.52.9-1_arm64.deb \
 # RUN dpkg -i /code/inspec_4.52.9-1_arm64.deb 
-    && gem install --user-install train-kubernetes \
+    && gem install train-kubernetes \
     && inspec plugin install train-kubernetes --chef-license accept \
     && rm -Rf /code/*.*
 
@@ -20,5 +20,5 @@ RUN useradd inspec -m -s /bin/bash \
 
 WORKDIR /code/
 
-RUN gem install --user-install train-kubernetes \
-    && inspec plugin install train-kubernetes --chef-license accept 
+# RUN gem install --user-install train-kubernetes \
+#     && inspec plugin install train-kubernetes --chef-license accept 
